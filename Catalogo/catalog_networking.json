@@ -1,0 +1,43 @@
+[
+    {
+        "_id": "83dcd812afd8462cb3f17ed98decd42f",
+        "resourceName": "elasticIp",
+        "resourceCategory": "networking",
+        "currencyCode": "EUR",
+        "unitOfMeasure": "1 Hour",
+        "unitPrice": 0.005,
+        "productName": "elasticIp",
+        "flavor": null,
+        "reservations": [
+            {
+                "term": "1 Month",
+                "price": 0.00475
+            },
+            {
+                "term": "1 Year",
+                "price": 0.0045
+            },
+            {
+                "term": "3 Years",
+                "price": 0.004
+            }
+        ],
+        "tiers": [
+            {
+                "category": "Base",
+                "minimumUnits": 10,
+                "percentDiscount": 5.0
+            },
+            {
+                "category": "Partner",
+                "minimumUnits": 50,
+                "percentDiscount": 10.0
+            },
+            {
+                "category": "Premium",
+                "minimumUnits": 100,
+                "percentDiscount": 15.0
+            }
+        ]
+    }
+]
