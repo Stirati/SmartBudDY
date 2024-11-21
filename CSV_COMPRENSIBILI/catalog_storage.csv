@@ -1,0 +1,4 @@
+﻿"_id","resourceName","resourceCategory","currencyCode","unitOfMeasure","unitPrice","productName","flavor","reservations__term","reservations__price","tiers__category","tiers__minimumUnits","tiers__percentDiscount"
+"ff615eba519c49ffbbd8a6e91ccd0765","blockStorage","storage","EUR","1 Hour","5E-05","blockStorage","null","1 Month","4.75E-05","Base","10","5.0"
+"","","","","","","","","1 Year","4.5E-05","Partner","50","10.0"
+"","","","","","","","","3 Years","4E-05","Premium","100","15.0"
