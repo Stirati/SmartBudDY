@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-step Form</title>
+    <link rel="stylesheet" href="storage_calculator.css">
+</head>
+<body>
+    <!-- Help Button with Waving Hand -->
+    <div class="help-button" onclick="toggleChat()">
+        <div class="waving-hand">👋</div>
+    </div>
+
+    <!-- Chatbot Dialog -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h3>Help Assistant</h3>
+            <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hi! I'm here to help you with the volume creation process. What would you like to know?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Type your question..." onkeypress="handleKeyPress(event)">
+            <button class="send-button" onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form id="multi-step-form">
+            <!-- Step 1: Details -->
+            <div class="form-step" id="step1">
+                <h2>1. Details</h2>
+                <div class="form-group">
+                    <label>Volume name</label>
+                    <input type="text" placeholder="Enter volume name (4-50 characters)" required>
+                    <p class="hint">4 to 50 alphanumeric lower case characters are allowed</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Tags (optional)</label>
+                    <input type="text" placeholder="Add tags separated by space">
+                    <p class="hint">Press enter or space to separate tags</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Project</label>
+                    <select>
+                        <option value="defaultproject">defaultproject</option>
+                    </select>
+                    <p class="hint">Select the project you want to assign this volume to</p>
+                </div>
+
+                <button type="button" class="next-btn" onclick="nextStep(1)">Next</button>
+            </div>
+
+            <!-- Step 2: Location -->
+            <div class="form-step" id="step2">
+                <h2>2. Location</h2>
+                <div class="info-box">
+                    <p>Once selected, the location of the volume cannot be changed.</p>
+                </div>
+
+                <div class="location-box">
+                    <input type="radio" id="it-bg" name="location" hidden>
+                    <label for="it-bg" class="location-card">
+                        <div class="flag">🇮🇹</div>
+                        <h3>IT BG</h3>
+                        <p>Bergamo</p>
+                        <p>Northern Italy</p>
+                    </label>
+                </div>
+
+                <button type="button" class="next-btn" onclick="nextStep(2)">Next</button>
+            </div>
+
+            <!-- Step 3: Configuration -->
+            <div class="form-step" id="step3">
+                <h2>3. Configuration</h2>
+                <div class="info-box">
+                    <p>Configure volumes to link to your resources here.</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Size in GB</label>
+                    <input type="number" min="1" placeholder="Enter volume size">
+                    <p class="hint">You can enter a volume size from a minimum of 1</p>
+                </div>
+
+                <button type="button" class="next-btn" onclick="nextStep(3)">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Show first step by default
+        document.getElementById('step1').classList.add('active');
+
+        function nextStep(currentStep) {
+            const current = document.getElementById('step' + currentStep);
+            const next = document.getElementById('step' + (currentStep + 1));
+            
+            if (next) {
+                current.classList.add('slide-out');
+                setTimeout(() => {
+                    current.style.display = 'none';
+                    current.classList.remove('active');
+                    next.classList.add('active', 'slide-in');
+                }, 300);
+            }
+        }
+
+        function toggleChat() {
+            const chatbot = document.getElementById('chatbot');
+            chatbot.classList.toggle('active');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user-message');
+                input.value = '';
+                
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    addMessage(response, 'bot-message');
+                }, 500);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function addMessage(text, className) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${className}`;
+            messageDiv.textContent = text;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('volume') && lowerMessage.includes('name')) {
+                return "Volume names must be 4-50 characters long and can only contain lowercase letters, numbers, and hyphens.";
+            }
+            if (lowerMessage.includes('location')) {
+                return "The location determines where your volume will be physically stored. Once selected, it cannot be changed.";
+            }
+            if (lowerMessage.includes('size')) {
+                return "You can specify any size from 1GB up. Choose a size that meets your storage needs while considering cost efficiency.";
+            }
+            if (lowerMessage.includes('tag')) {
+                return "Tags help you organize and manage your volumes. They're optional but recommended for better resource management.";
+            }
+            
+            return "I can help you with volume names, locations, sizing, and tagging. What specific information do you need?";
+        }
+    </script>
+</body>
+</html>
