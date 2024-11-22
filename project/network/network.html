@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Dashboard</title>
+    <link rel="stylesheet" href="network.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="container">
+        <h1>Networking</h1>
+        
+        <div class="grid">
+            <!-- VPC Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="material-icons">public</span>
+                    <h2>Virtual Private Cloud Networks</h2>
+                </div>
+                <p>The Virtual Private Cloud Network is a segregated logical environment in which to create Subnets and Security Groups.</p>
+                <div class="links">
+                    <a href="#" class="link">More info</a>
+                    <a href="vpc.html" class="button">Go to your VPC Networks</a>
+                </div>
+            </div>
+
+            <!-- Elastic IPs Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="material-icons">router</span>
+                    <h2>Elastic IPs</h2>
+                </div>
+                <p>An Elastic IP is a public IP address that can be pointed to one of your Aruba Cloud services. In other words, it allows you to redirect network traffic to any of your Aruba Cloud services.</p>
+                <div class="links">
+                    <a href="#" class="link">More info</a>
+                    <a href="elasticIP.html" class="button">Go to your IPs</a>
+                </div>
+            </div>
+
+            <!-- LBaaS Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="material-icons">sync_alt</span>
+                    <h2>LBaaS</h2>
+                </div>
+                <p>Load Balancers allow you to distribute traffic across multiple instances and are a good way of scaling the application horizontally.</p>
+                <div class="links">
+                    <a href="#" class="link">More info</a>
+                    <a href="#" class="button">Go to Load Balancers</a>
+                </div>
+            </div>
+
+            <!-- Hybrid Link Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="material-icons">link</span>
+                    <h2>Hybrid Link</h2>
+                </div>
+                <p>Level 2 network connection between the Virtual Private Cloud service and the physical infrastructure colocated in Aruba Data Centers. The link supplied is redundant up to the physical switch terminal.</p>
+                <div class="links">
+                    <a href="#" class="link">More info</a>
+                    <a href="#" class="button">Go to the Control Panel <span class="material-icons">open_in_new</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

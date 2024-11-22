@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volumes Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="tabs">
+            <button class="tab active">Volumes</button>
+            <button class="tab">Activity log</button>
+        </nav>
+
+        <div class="info-banner">
+            <span class="info-icon">ℹ️</span>
+            Use the Kubernetes console to edit or delete volumes associated with your clusters.
+        </div>
+
+        <div class="actions">
+            <button class="create-button">
+                <span class="plus">+</span>
+                Create new volume
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Volume name ↓</th>
+                        <th>ID ↓</th>
+                        <th>Tags ↓</th>
+                        <th>Created on ↓</th>
+                        <th>Status ↓</th>
+                        <th>Type of associated resource ↓</th>
+                        <th>Name of associated resource</th>
+                        <th>Size ↓</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Empty state -->
+                    <tr class="empty-state">
+                        <td colspan="8">
+                            <div class="no-volumes">
+                                <div class="db-icon">🗄️</div>
+                                <p>No volumes</p>
+                                <p class="volume-description">A volume is a logical unit of archived data, charged at a rate of 1 GB/h upwards.</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
