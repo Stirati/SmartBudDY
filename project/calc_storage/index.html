@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Storage Calculator</h1>
+            <p>Choose your plan and calculate storage costs</p>
+        </header>
+
+        <main class="calculator">
+            <div class="steps-indicator">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span>Select Plan</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span>Choose Term</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span>Configure</span>
+                </div>
+            </div>
+
+            <div class="calculator-content">
+                <!-- Step 1: Plan Selection -->
+                <section class="step-content active" id="step1">
+                    <div class="plans-grid">
+                        <div class="plan-card" data-plan="base">
+                            <div class="plan-header">
+                                <span class="plan-tag">Base</span>
+                                <h3>Startup</h3>
+                                <p class="plan-price">€0.00005/hour</p>
+                            </div>
+                            <div class="plan-features">
+                                <p>✓ 5% Discount</p>
+                                <p>✓ Min 10 GB</p>
+                                <p>✓ Basic Support</p>
+                            </div>
+                            <button class="select-plan-btn">Select Plan</button>
+                        </div>
+
+                        <div class="plan-card" data-plan="partner">
+                            <div class="plan-header">
+                                <span class="plan-tag">Partner</span>
+                                <h3>Business</h3>
+                                <p class="plan-price">€0.0000475/hour</p>
+                            </div>
+                            <div class="plan-features">
+                                <p>✓ 10% Discount</p>
+                                <p>✓ Min 50 GB</p>
+                                <p>✓ Priority Support</p>
+                            </div>
+                            <button class="select-plan-btn">Select Plan</button>
+                        </div>
+
+                        <div class="plan-card" data-plan="premium">
+                            <div class="plan-header">
+                                <span class="plan-tag premium">Premium</span>
+                                <h3>Enterprise</h3>
+                                <p class="plan-price">€0.00004/hour</p>
+                            </div>
+                            <div class="plan-features">
+                                <p>✓ 15% Discount</p>
+                                <p>✓ Min 100 GB</p>
+                                <p>✓ 24/7 Support</p>
+                            </div>
+                            <button class="select-plan-btn">Select Plan</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 2: Term Selection -->
+                <section class="step-content" id="step2">
+                    <div class="terms-grid">
+                        <div class="term-card" data-term="hour">
+                            <h3>Pay as you go</h3>
+                            <p class="term-price">€0.00005/hour</p>
+                            <p class="term-detail">Flexible, no commitment</p>
+                        </div>
+                        <div class="term-card" data-term="month">
+                            <h3>Monthly</h3>
+                            <p class="term-price">€0.0000475/hour</p>
+                            <p class="term-detail">Save 5%</p>
+                        </div>
+                        <div class="term-card" data-term="year">
+                            <h3>Yearly</h3>
+                            <p class="term-price">€0.000045/hour</p>
+                            <p class="term-detail">Save 10%</p>
+                        </div>
+                        <div class="term-card" data-term="3years">
+                            <h3>3 Years</h3>
+                            <p class="term-price">€0.00004/hour</p>
+                            <p class="term-detail">Save 20%</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Step 3: Configuration -->
+                <section class="step-content" id="step3">
+                    <div class="config-container">
+                        <div class="storage-config">
+                            <label for="storage-size">Storage Size (GB)</label>
+                            <div class="storage-input">
+                                <input type="number" id="storage-size" min="1" value="10">
+                                <span class="unit">GB</span>
+                            </div>
+                        </div>
+
+                        <div class="price-summary">
+                            <h3>Price Summary</h3>
+                            <div class="summary-grid">
+                                <div class="summary-item">
+                                    <span>Base Price</span>
+                                    <span id="base-price">€0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Plan Discount</span>
+                                    <span id="plan-discount" class="discount">-€0.00</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Term Savings</span>
+                                    <span id="term-savings" class="discount">-€0.00</span>
+                                </div>
+                                <div class="summary-item total">
+                                    <span>Total Monthly</span>
+                                    <span id="final-price">€0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="calculator-actions">
+                <button id="prevBtn" class="action-btn" disabled>Previous</button>
+                <button id="nextBtn" class="action-btn primary">Next</button>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../calc_storage/js/calculator.js"></script>
+</body>
+</html>

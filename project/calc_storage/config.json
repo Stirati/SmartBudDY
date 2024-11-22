@@ -1,0 +1,62 @@
+{
+  "plans": {
+    "base": {
+      "hourlyRate": 0.00005,
+      "discount": 5,
+      "minStorage": 10,
+      "name": "Base",
+      "description": "Perfect for startups and small projects",
+      "features": [
+        "5% Discount",
+        "Min 10 GB",
+        "Basic Support"
+      ]
+    },
+    "partner": {
+      "hourlyRate": 0.0000475,
+      "discount": 10,
+      "minStorage": 50,
+      "name": "Partner",
+      "description": "Ideal for growing businesses",
+      "features": [
+        "10% Discount",
+        "Min 50 GB",
+        "Priority Support"
+      ]
+    },
+    "premium": {
+      "hourlyRate": 0.00004,
+      "discount": 15,
+      "minStorage": 100,
+      "name": "Premium",
+      "description": "For enterprise-level requirements",
+      "features": [
+        "15% Discount",
+        "Min 100 GB",
+        "24/7 Support"
+      ]
+    }
+  },
+  "terms": {
+    "hour": {
+      "name": "Hourly",
+      "discount": 0,
+      "description": "Flexible, no commitment"
+    },
+    "month": {
+      "name": "Monthly",
+      "discount": 5,
+      "description": "Save 5%"
+    },
+    "year": {
+      "name": "Yearly",
+      "discount": 10,
+      "description": "Save 10%"
+    },
+    "3years": {
+      "name": "3 Years",
+      "discount": 20,
+      "description": "Save 20%"
+    }
+  }
+}
