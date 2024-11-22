@@ -1,0 +1,4 @@
+﻿"_id","resourceName","resourceCategory","currencyCode","unitOfMeasure","unitPrice","productName","flavor","reservations__term","reservations__price","tiers__category","tiers__minimumUnits","tiers__percentDiscount"
+"83dcd812afd8462cb3f17ed98decd42f","elasticIp","networking","EUR","1 Hour","0.005","elasticIp","null","1 Month","0.00475","Base","10","5.0"
+"","","","","","","","","1 Year","0.0045","Partner","50","10.0"
+"","","","","","","","","3 Years","0.004","Premium","100","15.0"
