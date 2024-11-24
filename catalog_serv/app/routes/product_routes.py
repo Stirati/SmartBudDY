@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from app.db.products_db import ProductsSessionLocal, products_engine, ProductsBase
+from catalog_serv.app.db.products_db import ProductsSessionLocal, products_engine, ProductsBase
 from app.models.product_models import Category, Product
 from app.schemas.product_schemas import CategoryCreate, Category as CategorySchema, ProductCreate, Product as ProductSchema
 

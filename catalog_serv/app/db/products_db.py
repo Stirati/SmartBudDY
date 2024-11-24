@@ -1,9 +1,8 @@
-# app/database/products_db.py
+# app/db/products_db.py
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker
 
-PRODUCTS_DATABASE_URL = "sqlite:///./products.db"  # Sostituisci con il tuo DB se necessario
+PRODUCTS_DATABASE_URL = "sqlite:///./products.db"
 
 products_engine = create_engine(
     PRODUCTS_DATABASE_URL, connect_args={"check_same_thread": False}
