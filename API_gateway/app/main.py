@@ -1,12 +1,21 @@
-# api_gateway/app/main.py
+import os
 from fastapi import FastAPI, Request, Response
 import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
-CATALOG_SERVICE_URL = "http://catalog-service:80"
-INVENTORY_SERVICE_URL = "http://inventory-service:80"
-PRICING_SERVICE_URL = "http://pricing-service:80"
+# URL dei servizi esistenti
+CATALOG_SERVICE_URL = os.getenv("CATALOG_SERVICE_URL")
+INVENTORY_SERVICE_URL = os.getenv("INVENTORY_SERVICE_URL")
+PRICING_SERVICE_URL = os.getenv("PRICING_SERVICE_URL")
+
+# URL dei nuovi servizi
+SORTING_SERVICE_URL = os.getenv("SORTING_SERVICE_URL")
+INSTANTIATION_SERVICE_URL = os.getenv("INSTANTIATION_SERVICE_URL")
+ACTIVE_RESOURCES_SERVICE_URL = os.getenv("ACTIVE_RESOURCES_SERVICE_URL")
 
 @app.middleware("http")
 async def proxy_requests(request: Request, call_next):
@@ -22,6 +31,12 @@ async def proxy_requests(request: Request, call_next):
             url = f"{INVENTORY_SERVICE_URL}{path[len('/inventory'):]}"
         elif path.startswith("/pricing"):
             url = f"{PRICING_SERVICE_URL}{path[len('/pricing'):]}"
+        elif path.startswith("/sorting"):
+            url = f"{SORTING_SERVICE_URL}{path[len('/sorting'):]}"
+        elif path.startswith("/instantiation"):
+            url = f"{INSTANTIATION_SERVICE_URL}{path[len('/instantiation'):]}"
+        elif path.startswith("/active-resources"):
+            url = f"{ACTIVE_RESOURCES_SERVICE_URL}{path[len('/active-resources'):]}"
         else:
             return Response("Not Found", status_code=404)
 
