@@ -1,17 +1,14 @@
-# app/schemas/user_schemas.py
-from pydantic import BaseModel, EmailStr
-from typing import Optional
+from pydantic import BaseModel
 
 class UserBase(BaseModel):
     username: str
-    email: EmailStr
+    email: str
 
 class UserCreate(UserBase):
-    password: str  # Gestione della password (hashing) necessaria
+    password: str
 
 class User(UserBase):
     id: int
-    is_active: bool
 
     class Config:
         orm_mode = True
