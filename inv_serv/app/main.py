@@ -1,9 +1,10 @@
+# inv_serv/app/main.py
 from fastapi import FastAPI
-from app.routes.resource_routes import router as resource_router
+from app.routes import sorting_routes
 
 app = FastAPI()
 
-app.include_router(resource_router)
+app.include_router(sorting_routes.router)
 
 @app.get("/")
 def read_root():

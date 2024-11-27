@@ -4,8 +4,6 @@ from fastapi import FastAPI
 
 # Aggiungi il percorso del progetto al PYTHONPATH
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# Stampa di debug per verificare il PYTHONPATH
 print("PYTHONPATH:", sys.path)
 
 # Stampa di debug per verificare se i moduli vengono importati correttamente
@@ -28,3 +26,8 @@ try:
     print("Inclusione del router degli utenti riuscita")
 except NameError as e:
     print("Errore durante l'inclusione del router degli utenti:", e)
+
+@app.get("/")
+def read_root():
+    print("Endpoint root chiamato")
+    return {"message": "catalog_serv is running"}
