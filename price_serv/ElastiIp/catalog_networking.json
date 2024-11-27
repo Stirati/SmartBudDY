@@ -1,0 +1,39 @@
+{
+  "resources": [
+    {
+      "resourceName": "elasticIp",
+      "resourceCategory": "Networking",
+      "currencyCode": "USD",
+      "unitOfMeasure": "Hours",
+      "unitPrice": 0.005,
+      "productName": "Elastic IP Address",
+      "reservations": [
+        {
+          "term": "1 Year",
+          "price": 0.004
+        },
+        {
+          "term": "3 Years",
+          "price": 0.003
+        }
+      ],
+      "tiers": [
+        {
+          "category": "Basic",
+          "minimumUnits": 0,
+          "percentDiscount": 0
+        },
+        {
+          "category": "Premium",
+          "minimumUnits": 100,
+          "percentDiscount": 10
+        },
+        {
+          "category": "Enterprise",
+          "minimumUnits": 1000,
+          "percentDiscount": 20
+        }
+      ]
+    }
+  ]
+}
